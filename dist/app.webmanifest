@@ -1,0 +1,71 @@
+{
+  "name": "JejakKaki",
+  "short_name": "JejakKaki",
+  "description": "Aplikasi Sosial Media untuk berbagi cerita perjalanan dan pengalaman.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F0F2BD",
+  "theme_color": "#4B352A",
+  "icons": [
+    {
+      "src": "/images/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+    
+  ],
+  "shortcuts": [
+    {
+      "name": "Tambah Cerita Baru",
+      "short_name": "Tambah Cerita",
+      "description": "Membuat cerita perjalanan baru",
+      "url": "/#/add-story",
+      "icons": [
+        {
+          "src": "/images/add-story96.png", 
+          "sizes": "96x96",
+          "type": "image/png"
+        },
+        {
+          "src": "/images/add-story128.png",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/icons/screenshots/Screenshot1.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "label": "Tampilan Beranda"
+    },
+    {
+      "src": "images/icons/screenshots/Screenshot2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "label": "Tampilan Profil"
+    },
+    {
+      "src": "images/icons/screenshots/Screenshot3.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "label": "Tampilan Peta"
+    },
+    {
+      "src": "images/icons/screenshots/mobile-jejakkaki.png",
+      "sizes": "400x870",
+      "type": "image/png",
+      "label": "Tampilan Mobile"
+    }
+  ],
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en"
+}
