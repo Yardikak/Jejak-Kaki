@@ -1,0 +1,1037 @@
+:root {
+  --coklat-tua: #4B352A;
+  --oranye: #CA7842;
+  --hijau-muda: #B2CD9C;
+  --kuning-pucat: #FFFDE7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  padding-inline: 32px;
+  margin-inline: auto;
+  max-width: 1300px;
+}
+
+header {
+  /* Gradasi dari oranye ke coklat tua */
+  background: linear-gradient(90deg, var(--oranye) 0%, var(--coklat-tua) 100%);
+}
+
+.main-header {
+  min-height: 90px;
+  padding-block: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.brand-name {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.navigation-drawer {
+  min-height: 100vh;
+  width: 200px;
+  padding: 20px 10px;
+  background: linear-gradient(90deg, var(--oranye) 0%, var(--coklat-tua) 100%);
+
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+
+  box-shadow: 0 0 4px 2px #00000033;
+  transform: translateX(-100%);
+  transition: transform 350ms;
+
+  z-index: 9999;
+}
+
+.navigation-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-button {
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+
+  display: inline-block;
+  background-color: transparent;
+
+  font-weight: bold;
+  font-size: 28px;
+  color: #141e16;
+
+  cursor: pointer;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 20px;
+}
+
+.nav-list li a {
+  padding: 6px 10px;
+  display: block;
+  color: white ;
+  text-decoration: none;
+}
+
+.nav-list li a:hover {
+  background-color: #ffffff6c;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* MAIN */
+.main-content {
+  padding-block: 20px;
+  background: #FFFDE7;
+}
+
+/* Write your styles more here */
+
+@media screen and (width > 1000px) {
+  .navigation-drawer {
+    min-height: auto;
+    width: auto;
+    padding: 0;
+    background-color: transparent;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: static;
+    box-shadow: none;
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .nav-list li a {
+    display: inline-block;
+  }
+
+  .drawer-button {
+    display: none;
+  }
+}
+
+
+/* HomeView Styles */
+.home-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+#storiesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: #FFFDE7;
+  padding: 10px;
+  min-height: 120px;
+  justify-content: center; /* Centers horizontally if items don't fill the line */
+  align-items: center; 
+}
+
+.story-card {
+  background: var(--kuning-pucat);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 18px 16px 14px 16px;
+  width: 320px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.story-card:hover,
+.story-card:focus {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  outline: 2px solid var(--oranye);
+  transform: scale(1.04);
+  z-index: 2;
+}
+
+.story-card figure {
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.story-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+
+.story-card figcaption {
+  font-weight: bold;
+  margin-top: 6px;
+  color: #333;
+  text-align: left;
+}
+
+.story-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 4.5em;
+  line-height: 1.5em;
+  margin-bottom: 8px;
+}
+
+.story-card small {
+  color: #888;
+}
+
+.story-map {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  min-width: 180px;
+  min-height: 100px;
+}
+
+/* Button Styles */
+button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+button i {
+  margin-right: 5px;
+}
+
+/* Map Control Buttons */
+#currentLocationBtn, #resetMapBtn {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#currentLocationBtn:hover, #resetMapBtn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Scroll Styling */
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.space-y-2 > * + * {
+  margin-top: 10px;
+}
+
+.pb-12 {
+  padding-bottom: 12px;
+}
+
+
+/* Style for the map container */
+.map-home {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center; /* Center map horizontally */
+  align-items: center; /* Center map vertically */
+  background-color: #f7f7f7;
+}
+
+/* Map styling */
+.map-home #map-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Hover effect for better interaction */
+.map-home:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Section */
+.login-sec {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kuning-pucat);
+  padding: 16px;
+}
+
+.login-container {
+  max-width: 28rem;
+  width: 100%;
+}
+
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(75,53,42,0.10);
+}
+
+.login-title {
+  font-size: 2rem;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  color: var(--coklat-tua, #4B352A);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--coklat-tua, #4B352A);
+  margin-bottom: 0.5rem;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--hijau-muda, #B2CD9C);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--coklat-tua, #4B352A);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--oranye, #CA7842);
+  box-shadow: 0 0 0 2px rgba(202, 120, 66, 0.2);
+}
+
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  background: linear-gradient(90deg, var(--oranye, #CA7842) 0%, var(--hijau-muda, #B2CD9C) 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background: linear-gradient(90deg, var(--hijau-muda, #B2CD9C) 0%, var(--oranye, #CA7842) 100%);
+}
+
+.auth-logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  background: #d32f2f;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+.auth-logout-btn:hover {
+  background: #b71c1c;
+}
+
+/* Register Link Section */
+.register-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.register-text {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.register-link-text {
+  font-weight: 500;
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.register-link-text:hover {
+  color: #4f46e5;
+}
+
+/* Detail Story View Styles */
+.detail-story {
+  max-width: 500px;
+  margin: 32px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.detail-story h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  text-align: center;
+}
+
+.detail-story img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  object-fit: cover;
+}
+
+.detail-story p {
+  font-size: 1.1rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.detail-story small {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  display: block;
+  text-align: center;
+}
+
+.detail-story #map-detail {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.detail-story button.auth-btn {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  background: #f58529;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  border: none;
+  transition: background 0.2s;
+}
+
+.detail-story button.auth-btn:hover {
+  background: #dd2a7b;
+}
+
+/* AddStoryView Styles */
+.add-story-main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--kuning-pucat, #FFFDE7);
+  border-radius: 16px;
+}
+
+.add-story-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(75,53,42,0.10);
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.add-story-card h1 {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--coklat-tua);
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+#addStoryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#addStoryForm label {
+  color: var(--coklat-tua);
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+#addStoryForm textarea,
+#addStoryForm input[type="number"],
+#addStoryForm input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--hijau-muda);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--coklat-tua);
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+#addStoryForm textarea:focus,
+#addStoryForm input[type="number"]:focus {
+  outline: 2px solid var(--oranye);
+}
+
+#addStoryForm button[type="button"] {
+  background: var(--hijau-muda);
+  color: var(--coklat-tua);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#addStoryForm button[type="button"]:hover {
+  background: #9CCC65;
+}
+
+#cameraContainer {
+  display: none;
+  margin-top: 10px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+#cameraContainer video {
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 8px;
+}
+
+#previewContainer img {
+  max-width: 200px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+#addStoryForm button[type="submit"] {
+  background: linear-gradient(90deg, var(--oranye, #CA7842) 0%, var(--hijau-muda, #B2CD9C) 100%);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+#addStoryForm button[type="submit"]:hover {
+  background: linear-gradient(190deg, var(--oranye, #CA7842) 0%, var(--hijau-muda, #B2CD9C) 100%);
+}
+
+#addStoryForm p#errorMessage {
+  color: #d32f2f;
+  margin-top: 8px;
+}
+
+#addStoryForm p#successMessage {
+  color: #388e3c;
+  margin-top: 8px;
+}
+
+#map-picker {
+  height: 250px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(75,53,42,0.08);
+  background: #f7f7f7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .add-story-main, .add-story-card {
+    max-width: 98vw;
+    padding: 10px;
+  }
+  #map-picker {
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .add-story-card {
+    padding: 10px;
+  }
+  #cameraContainer video {
+    max-width: 98vw;
+  }
+  #previewContainer img {
+    max-width: 98vw;
+  }
+}
+
+/* Tambahkan di bawah AddStoryView Styles atau di bagian bawah file CSS utama */
+/* filepath: c:\Users\Dell.RIKCY\Downloads\starter-project-with-vite\starter-project-with-vite\src\styles\styles.css */
+
+/* RegisterView Styles */
+.register-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  padding: 16px;
+}
+
+.register-container {
+  max-width: 28rem;
+  width: 100%;
+}
+
+.register-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(75,53,42,0.10);
+}
+
+.register-title {
+  font-size: 2rem;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  color: var(--coklat-tua, #4B352A);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--coklat-tua, #4B352A);
+  margin-bottom: 0.5rem;
+}
+
+.register-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--hijau-muda, #B2CD9C);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--coklat-tua, #4B352A);
+}
+
+.register-input:focus {
+  outline: none;
+  border-color: var(--oranye, #CA7842);
+  box-shadow: 0 0 0 2px rgba(202, 120, 66, 0.2);
+}
+
+.register-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  background: linear-gradient(90deg, var(--oranye, #CA7842) 0%, var(--hijau-muda, #B2CD9C) 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+.register-btn:hover {
+  background: linear-gradient(90deg, var(--hijau-muda, #B2CD9C) 0%, var(--oranye, #CA7842) 100%);
+}
+
+.register-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.register-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.register-link-text {
+  font-weight: 500;
+  color: var(--oranye, #CA7842);
+  text-decoration: none;
+}
+
+.register-link-text:hover {
+  color: var(--coklat-tua, #4B352A);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    padding: 1rem;
+  }
+}
+
+/* Map style button & popup (shared for add story & detail story) */
+.map-detail-wrapper {
+  position: relative;
+}
+
+.map-layer-control-wrapper {
+  position: relative;
+}
+.map-style-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1001;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--coklat-tua);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.map-style-btn:hover {
+  background: var(--oranye);
+}
+.map-style-popup {
+  display: none;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  z-index: 1002;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  padding: 16px 18px;
+  min-width: 180px;
+  animation: fadeInMapPopup 0.2s;
+}
+@keyframes fadeInMapPopup {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.map-style-popup-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.map-style-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  width: 100%;
+  background: grey;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.map-style-option:last-child {
+  margin-bottom: 0;
+}
+.map-style-option:hover {
+  background: #e0e0e0;
+}
+.map-style-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Responsive fix: pastikan map tetap terlihat pada layar kecil */
+@media (max-width: 600px) {
+  .map-detail {
+    height: 180px;
+  }
+  .map-style-popup {
+    min-width: 120px;
+    right: 8px;
+    top: 56px;
+  }
+  .map-style-btn {
+    right: 8px;
+    top: 8px;
+  }
+}
+
+.home-username {
+  color: #CA7842;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    border-radius: 0;
+    font-size: 0.98rem;
+    padding: 1rem 0;
+  }
+}
+
+/* View Transitions API */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  opacity: 1;
+  animation-name: fadeOutView;
+}
+
+::view-transition-new(root) {
+  opacity: 0;
+  animation-name: fadeInView;
+}
+
+@keyframes fadeOutView {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInView {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* src/styles/savedStories.css */
+
+
+/* Base styling for the section */
+.saved-stories-section {
+  padding: 32px; /* Consistent padding with your .container */
+  margin-inline: auto;
+  max-width: 1300px; /* Consistent max-width */
+  font-family: 'Poppins', sans-serif; /* Use Poppins for text */
+  color: var(--coklat-tua); /* Use your defined color variable */
+  min-height: 70vh; /* Ensure it takes up some vertical space */
+  background-color: var(--kuning-pucat); /* Match overall app background */
+}
+
+.saved-stories-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--coklat-tua); /* Use your theme color */
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-family: 'Caveat', cursive; /* Use a cursive font for the title */
+}
+
+/* Grid layout for stories */
+.saved-stories-grid {
+  display: grid; /* Use CSS Grid for better control */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 24px; /* Space between cards */
+  justify-items: center; /* Center cards within their grid cells */
+  align-items: start; /* Align items to the start of their grid cells vertically */
+}
+
+/* Styling for individual story cards */
+.story-card {
+  background: #ffffff; /* White background for cards */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Enhanced shadow */
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%; /* Take full width of grid cell */
+  max-width: 320px; /* Limit max width for smaller screens */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+}
+
+.story-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Stronger shadow on hover */
+}
+
+.story-card-title {
+  font-size: 1.5rem;
+  color: var(--coklat-tua);
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.story-card-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Styling for buttons within the card */
+.delete-saved-story-btn,
+.view-story-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none; /* For the <a> tag */
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.delete-saved-story-btn {
+  background-color: var(--oranye); /* Orange theme color */
+  color: white;
+}
+
+.delete-saved-story-btn:hover {
+  background-color: #e08e5e; /* Slightly darker orange */
+}
+
+.view-story-btn {
+  background-color: var(--hijau-muda); /* Light green theme color */
+  color: var(--coklat-tua);
+}
+
+.view-story-btn:hover {
+  background-color: #9ab97d; /* Slightly darker green */
+}
+
+/* Message for no stories */
+.no-stories-message {
+  text-align: center;
+  width: 100%; /* Occupy full width of grid */
+  grid-column: 1 / -1; /* Span across all columns in grid */
+  font-size: 1.2rem;
+  color: #666;
+  padding: 40px 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .saved-stories-section {
+    padding: 20px;
+  }
+  .saved-stories-title {
+    font-size: 2rem;
+  }
+  .story-card {
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: none; /* No max-width constraint */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .saved-stories-section {
+    padding: 15px;
+  }
+  .saved-stories-title {
+    font-size: 1.8rem;
+  }
+  .story-card {
+    padding: 15px;
+  }
+  .story-card-title {
+    font-size: 1.3rem;
+  }
+  .story-card-description {
+    font-size: 0.9rem;
+  }
+}
